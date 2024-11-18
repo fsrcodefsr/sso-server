@@ -1,0 +1,66 @@
+#########################################################
+
+Скачиваем образы keycloak и postgres из docker hub
+в терминале вводим следующие команды  
+
+    docker pull keycloak/keycloak:25.0
+    docker pull postgres:16
+
+Сохраняем образы для переноса в локальную среду
+
+    docker save -o keycloak.tar.gz keycloa/keycloak:25.0
+    docker save -o postgres.tar.gz postgres:16
+
+Запускаем:
+
+    docker compose up -d
+
+#########################################################
+
+
+#######################
+
+в /etc/hosts прописать:
+127.0.0.1 sso.qr.uqk
+
+#######################
+
+
+#########################################
+
+Переходим в браузере https://sso.qr.uqk/
+
+#########################################
+
+
+#######################
+
+Administration Console
+- login: admin
+- password: admin
+
+#######################
+
+
+#######################
+
+Realm name: test-realm
+
+#######################
+
+
+#######################
+
+Clients:
+1) Client_id: app1
+2) Client_id: app2
+
+Users:
+1)  - login: user1
+    - password: 123
+2)  - login: user2
+    - password: 123
+3)  - login: user3
+    - password: 123
+
+#######################

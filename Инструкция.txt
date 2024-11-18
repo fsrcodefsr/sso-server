@@ -11,6 +11,11 @@
     docker save -o keycloak.tar.gz keycloa/keycloak:25.0
     docker save -o postgres.tar.gz postgres:16
 
+Переносим и делаем load образов:
+
+    docker load -i keycloak.tar.gz
+    docker load -i postgres.tar.gz
+
 Запускаем:
 
     docker compose up -d
